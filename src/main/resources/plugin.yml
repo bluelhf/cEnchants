@@ -1,0 +1,4 @@
+name: cEnchants
+version: 1.0
+api-version: 1.13
+main: io.github.bluelhf.cenchants.cEnchants
