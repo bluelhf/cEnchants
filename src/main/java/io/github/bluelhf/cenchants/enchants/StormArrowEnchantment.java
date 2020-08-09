@@ -2,6 +2,8 @@ package io.github.bluelhf.cenchants.enchants;
 
 import io.github.bluelhf.cenchants.cEnchants;
 import io.github.bluelhf.cenchants.utilities.EnchantUtil;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.Player;
@@ -16,8 +18,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class StormArrowEnchantment extends CEnchantment implements Listener {
 
-    public StormArrowEnchantment(@NotNull String name) {
-        super(name);
+    public StormArrowEnchantment(@NotNull String key) {
+        super(key);
     }
 
     @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
@@ -33,6 +35,15 @@ public class StormArrowEnchantment extends CEnchantment implements Listener {
         if (ev.getEntity().getMetadata("storm_arrow").stream().noneMatch(s -> s.getOwningPlugin() == cEnchants.get())) return;
         if (!ev.getEntity().getWorld().isThundering()) return;
         ev.getEntity().getWorld().strikeLightning(ev.getEntity().getLocation());
+    }
+
+    @Override
+    public BaseComponent[] getDescription() {
+        return new ComponentBuilder()
+            .append("Storm Arrow ").bold(true)
+            .append("channels lightning\n").reset()
+            .append("wherever your arrows land.")
+            .create();
     }
 
     @Override

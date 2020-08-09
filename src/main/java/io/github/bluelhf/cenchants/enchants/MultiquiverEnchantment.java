@@ -1,7 +1,10 @@
 package io.github.bluelhf.cenchants.enchants;
 
 import io.github.bluelhf.cenchants.cEnchants;
+import io.github.bluelhf.cenchants.utilities.ProjectileUtil;
 import io.github.bluelhf.cenchants.utilities.Quaternion;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
@@ -71,29 +74,25 @@ public class MultiquiverEnchantment extends CEnchantment implements Listener {
             shotDirection = Quaternion.transformByQuaternion(shotDirection, quaternion);
 
             // Multiply by 3 because that's the speed of a full charge arrow
-            AbstractArrow old = (AbstractArrow) ev.getProjectile();
-            AbstractArrow proj = ev.getEntity().launchProjectile(Arrow.class, shotDirection.multiply(ev.getForce() * 3));
-            proj.setDamage(old.getDamage());
-            proj.setCritical(old.isCritical());
-            proj.setKnockbackStrength(old.getKnockbackStrength());
-            proj.setPierceLevel(old.getPierceLevel());
-            proj.setBounce(old.doesBounce());
-            proj.setFireTicks(old.getFireTicks());
-
-            boolean hasStormArrow = ev.getProjectile().getMetadata("storm_arrow").stream().anyMatch(s -> s.getOwningPlugin() == cEnchants.get() && s.asBoolean());
-            if (hasStormArrow) proj.setMetadata("storm_arrow", cEnchants.getMetaValue(hasStormArrow));
+            AbstractArrow proj = (AbstractArrow) ProjectileUtil.shootCopy(ev, shotDirection.multiply(ev.getForce()*3));
             proj.setPickupStatus(AbstractArrow.PickupStatus.CREATIVE_ONLY);
-            if (ctr != -1) {
-                ctr++;
-                if (ctr == random) {
-                    proj.setPickupStatus(AbstractArrow.PickupStatus.ALLOWED);
-                    ctr = -1;
-                }
+            if (!ev.getBow().containsEnchantment(ARROW_INFINITE) && ctr++ != -1 && ctr == random) {
+                proj.setPickupStatus(AbstractArrow.PickupStatus.ALLOWED);
+                ctr = -1;
             }
+
             EntityShootBowEvent event = new EntityShootBowEvent(ev.getEntity(), ev.getBow(), proj, ev.getForce());
             proj.setMetadata("multishot_arrow", cEnchants.getMetaValue(true));
             Bukkit.getPluginManager().callEvent(event);
         }
+    }
+
+    @Override
+    public BaseComponent[] getDescription() {
+        return new ComponentBuilder()
+            .append("Multi-Quiver ").bold(true)
+            .append("splits your arrow into many!").reset()
+            .create();
     }
 
     private Vector getUpVector(double pitch, double yaw) {
@@ -102,11 +101,11 @@ public class MultiquiverEnchantment extends CEnchantment implements Listener {
 
     private Vector getViewVector(double pitch, double yaw) {
         yaw *= -1;
-        double var_2 = Math.cos(yaw);
-        double var_3 = Math.sin(yaw);
-        double var_4 = Math.cos(pitch);
-        double var_5 = Math.sin(pitch);
-        return new Vector(var_3 * var_4, -var_5, var_2 * var_4);
+        double cosYaw = Math.cos(yaw);
+        double sinYaw = Math.sin(yaw);
+        double cosPitch = Math.cos(pitch);
+        double sinPitch = Math.sin(pitch);
+        return new Vector(sinYaw * cosPitch, -sinPitch, cosYaw * cosPitch);
     }
 
     @Override

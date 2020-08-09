@@ -9,6 +9,8 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -18,11 +20,32 @@ import java.util.List;
 public class EnchantUtil {
     private static final String[] NUMERALS = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X" };
 
+    public static ItemMeta enchantItem(ItemMeta oldMeta, @NotNull Enchantment ench, int enchLevel, boolean force) {
+        ItemMeta meta = oldMeta.clone();
+        boolean success = meta.addEnchant(ench, enchLevel, force);
+        if (!success)
+            throw new IllegalArgumentException("Level must be between " + ench.getStartLevel() + " and " + ench.getMaxLevel());
+
+
+        if (ench instanceof CEnchantment) {
+            // Special handling for CEnchantments since they have custom lores
+            if (meta.hasLore()) {
+                List<String> newLore = EnchantUtil.removeLoreEntry((CEnchantment) ench, meta.getLore());
+                newLore.add(0, "§r§7" + EnchantUtil.getLoreEntry(ench, enchLevel));
+                meta.setLore(newLore);
+            } else {
+                meta.setLore(Arrays.asList("§r§7" + EnchantUtil.getLoreEntry(ench, enchLevel)));
+            }
+        }
+
+        return meta;
+    }
+
     public static String getLoreEntry(Enchantment ench, int enchLevel){
-        if(enchLevel == 1 && ench.getMaxLevel() == 1){
+        if (enchLevel == 1 && ench.getMaxLevel() == 1){
             return getName(ench);
         }
-        if(enchLevel > 10 || enchLevel <= 0){
+        if (enchLevel > 10 || enchLevel <= 0){
             return getName(ench) + " enchantment.level." + enchLevel;
         }
 
@@ -67,22 +90,30 @@ public class EnchantUtil {
             builder.append(wrapped.getRarity().getColour()).append(id);
         }
 
-        return (ench.isCursed() ? "§c" : "") + builder.toString().trim();
+        return builder.toString().trim();
     }
 
     public static @Nullable ItemStack getEnchantment(Player e, Enchantment ench) {
         EnchantmentTarget target = ench.getItemTarget();
         int idx = -1;
-        for(ItemStack i : e.getInventory().getContents()) {
+        for(ItemStack i : e.getInventory()) {
             idx++;
             if (i == null) continue;
-            if ((target == EnchantmentTarget.ARMOR || target == EnchantmentTarget.WEARABLE) && (idx < 36 || idx > 39)) continue;
-            if (target == EnchantmentTarget.ARMOR_HEAD && idx != 39) continue;
-            if (target == EnchantmentTarget.ARMOR_TORSO && idx != 38) continue;
-            if (target == EnchantmentTarget.ARMOR_LEGS && idx != 37) continue;
-            if (target == EnchantmentTarget.ARMOR_FEET && idx != 36) continue;
-            if (target == EnchantmentTarget.TOOL && idx != e.getInventory().getHeldItemSlot()) continue;
-            if (i.containsEnchantment(ench) && ench.getItemTarget().includes(i)) {
+            if ((target == EnchantmentTarget.ARMOR       || target == EnchantmentTarget.WEARABLE) && (idx < 36 || idx > 39)) continue;
+            if (target  == EnchantmentTarget.ARMOR_HEAD  && idx    != 39) continue;
+            if (target  == EnchantmentTarget.ARMOR_TORSO && idx    != 38) continue;
+            if (target  == EnchantmentTarget.ARMOR_LEGS  && idx    != 37) continue;
+            if (target  == EnchantmentTarget.ARMOR_FEET  && idx    != 36) continue;
+            if ((target == EnchantmentTarget.TOOL
+                    || target == EnchantmentTarget.BOW
+                    || target == EnchantmentTarget.BREAKABLE
+                    || target == EnchantmentTarget.CROSSBOW
+                    || target == EnchantmentTarget.WEAPON
+                    || target == EnchantmentTarget.FISHING_ROD
+                    || target == EnchantmentTarget.VANISHABLE
+                    || target == EnchantmentTarget.TRIDENT) && idx != e.getInventory().getHeldItemSlot() && idx != 40 /* offhand */) continue;
+
+            if (i.containsEnchantment(ench)) {
                 return i;
             }
         }

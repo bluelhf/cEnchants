@@ -1,6 +1,8 @@
 package io.github.bluelhf.cenchants.enchants;
 
 import io.github.bluelhf.cenchants.cEnchants;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
@@ -82,6 +84,8 @@ public abstract class CEnchantment extends Enchantment {
         if (item.getEnchantments().keySet().stream().anyMatch(e -> this.conflictsWith(e) && e.getKey() != this.getKey())) return false;
         return true;
     }
+
+    public abstract BaseComponent[] getDescription();
 
 
     public void doTick(Player p) {

@@ -1,6 +1,8 @@
 package io.github.bluelhf.cenchants.enchants;
 
 import io.github.bluelhf.cenchants.cEnchants;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Particle;
@@ -52,6 +54,14 @@ public class LifeStealEnchantment extends CEnchantment implements Listener {
             livingDamager.setHealth(Math.min(livingDamager.getHealth() + totalHeal / (max / 0.3), livingDamager.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue()));
             i[0] += 0.3;
         }}.runTaskTimer(cEnchants.get(), 0, 2);
+    }
+
+    @Override
+    public BaseComponent[] getDescription() {
+        return new ComponentBuilder()
+            .append("Life Steal ").bold(true)
+            .append("utilises the dark arts to\nsuck the life out of your opponents").reset()
+            .create();
     }
 
     @Override

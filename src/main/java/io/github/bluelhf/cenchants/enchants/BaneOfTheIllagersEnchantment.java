@@ -2,6 +2,8 @@ package io.github.bluelhf.cenchants.enchants;
 
 import io.github.bluelhf.cenchants.cEnchants;
 import io.github.bluelhf.cenchants.utilities.EnchantUtil;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.enchantments.EnchantmentTarget;
@@ -31,6 +33,11 @@ public class BaneOfTheIllagersEnchantment extends CEnchantment implements Listen
         int level = i.getEnchantmentLevel(this);
         ev.getEntity().getWorld().playSound(ev.getEntity().getLocation(), Sound.ENTITY_ILLUSIONER_MIRROR_MOVE, 1, 1.3F);
         ev.setDamage(ev.getDamage() + (ev.getDamage() * (0.25 * level)));
+    }
+
+    @Override
+    public BaseComponent[] getDescription() {
+        return new ComponentBuilder().append("Deals more damage to Illagers").create();
     }
 
     public BaneOfTheIllagersEnchantment(String key) {

@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ShapeUtil {
+    public static double GOLDEN_RATIO = 1.618033988749894848;
+
     public static List<Location> wireframe(Location corner1, Location corner2, double sparsity) {
         World w = corner1.getWorld();
         double c1x = corner1.getX();
@@ -42,6 +44,38 @@ public class ShapeUtil {
         wireframe.addAll(line(l100, l101, sparsity));
 
         return wireframe;
+    }
+
+    public static List<Location> fibonacciLattice(Location location, double radius, int points) {
+        List<Location> lattice = new ArrayList<>();
+        World w = location.getWorld();
+        for(int i = 0; i < points; i++) {
+            double theta = 2 * Math.PI * i / GOLDEN_RATIO;
+            double phi = Math.acos(1 - 2*(i+0.5)/(double)points);
+            lattice.add(location.clone().add(new Location(w,
+                    radius*Math.cos(theta)*Math.sin(phi),
+                    radius*Math.sin(theta)*Math.sin(phi),
+                    radius*Math.cos(phi)
+            )));
+        }
+
+        return lattice;
+    }
+
+    public static List<Location> hollowSphere(Location location, double radius, double sparsity) {
+        List<Location> sphere = new ArrayList<>();
+        World w = location.getWorld();
+        for (double theta = 0; theta < Math.PI * 2; theta += sparsity) {
+            for (double azimuth = 0; azimuth < Math.PI * 2; azimuth += sparsity) {
+                sphere.add(location.clone().add(new Location(w,
+                        radius*Math.sin(theta)*Math.cos(azimuth),
+                        radius*Math.sin(theta)*Math.sin(azimuth),
+                        radius*Math.cos(theta)
+                )));
+            }
+        }
+
+        return sphere;
     }
 
     public static List<Location> line(Location l1, Location l2, double sparsity) {

@@ -1,6 +1,7 @@
 package io.github.bluelhf.cenchants.enchants;
 
 import io.github.bluelhf.cenchants.cEnchants;
+import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
@@ -64,6 +65,11 @@ public class DEPFlingEnchantment extends CEnchantment implements Listener {
     @Override
     public boolean conflictsWith(@NotNull Enchantment other) {
         return false;
+    }
+
+    @Override
+    public BaseComponent[] getDescription() {
+        return new BaseComponent[0];
     }
 
     @Override

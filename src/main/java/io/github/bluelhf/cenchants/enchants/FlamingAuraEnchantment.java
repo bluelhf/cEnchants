@@ -2,6 +2,8 @@ package io.github.bluelhf.cenchants.enchants;
 
 import io.github.bluelhf.cenchants.cEnchants;
 import io.github.bluelhf.cenchants.utilities.EnchantUtil;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Particle;
@@ -30,12 +32,8 @@ public class FlamingAuraEnchantment extends CEnchantment implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onDamage(EntityDamageByEntityEvent ev) {
         if (!(ev.getEntity() instanceof Player)) return;
-        if (ev.getEntity().getMetadata("flaming_aura_cooldown").stream()
-                .filter(m -> m.getOwningPlugin().equals(cEnchants.get()))
-                .findAny()
-                .map(MetadataValue::asLong).orElse(0L) > System.currentTimeMillis()) return;
-
-        LivingEntity ld = (LivingEntity) ev.getEntity();
+        if (cEnchants.getMetadata(ev.getEntity(), "flaming_aura_cooldown").map(MetadataValue::asLong).orElse(0L) > System.currentTimeMillis()) return;
+        Player player = (Player) ev.getEntity();
 
         if (!(ev.getEntity() instanceof InventoryHolder)) return;
         ItemStack item;
@@ -52,7 +50,7 @@ public class FlamingAuraEnchantment extends CEnchantment implements Listener {
                     return;
                 }
                 double max = Math.PI * 2;
-                Location source = ld.getLocation();
+                Location source = player.getLocation();
                 source.add(0, 0.5, 0);
                 for (double theta = 0; theta < max; theta += max / (16D*level/2D)) {
                         double x = source.getX() + level/2D * Math.sin(theta);
@@ -86,6 +84,15 @@ public class FlamingAuraEnchantment extends CEnchantment implements Listener {
         }.runTaskTimer(cEnchants.get(), 0, delay);
         ev.getEntity().setMetadata("flaming_aura_cooldown", cEnchants.getMetaValue(System.currentTimeMillis() + 6000));
 
+    }
+
+    @Override
+    public BaseComponent[] getDescription() {
+        return new ComponentBuilder()
+            .append("Flaming Aura ").bold(true)
+            .append("creates a powerful\nring of fire ").reset()
+            .append("around you when you get damaged!")
+            .create();
     }
 
     @Override

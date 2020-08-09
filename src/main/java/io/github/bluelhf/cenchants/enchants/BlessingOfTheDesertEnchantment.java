@@ -3,6 +3,8 @@ package io.github.bluelhf.cenchants.enchants;
 import io.github.bluelhf.cenchants.utilities.EnchantUtil;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
+import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -10,24 +12,24 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 
-public class VitalityEnchantment extends CEnchantment {
-    public VitalityEnchantment(String key) {
+public class BlessingOfTheDesertEnchantment extends CEnchantment {
+    public BlessingOfTheDesertEnchantment(String key) {
         super(key);
     }
 
     @Override
     public Rarity getRarity() {
-        return Rarity.UNCOMMON;
+        return Rarity.RARE;
     }
 
     @Override
     public @NotNull String getName() {
-        return "Vitality";
+        return "Blessing of the Desert";
     }
 
     @Override
     public int getMaxLevel() {
-        return 5;
+        return 3;
     }
 
     @Override
@@ -37,7 +39,7 @@ public class VitalityEnchantment extends CEnchantment {
 
     @Override
     public @NotNull EnchantmentTarget getItemTarget() {
-        return EnchantmentTarget.ARMOR_TORSO;
+        return EnchantmentTarget.ARMOR_FEET;
     }
 
     @Override
@@ -53,8 +55,8 @@ public class VitalityEnchantment extends CEnchantment {
     @Override
     public BaseComponent[] getDescription() {
         return new ComponentBuilder()
-            .append("Vitality ").bold(true)
-            .append("is basically health boost").reset()
+            .append("Blessing of the Desert ").bold(true)
+            .append("speeds you up while on sand.").reset()
             .create();
     }
 
@@ -62,12 +64,11 @@ public class VitalityEnchantment extends CEnchantment {
     public void doTick(Player p) {
         ItemStack item = EnchantUtil.getEnchantment(p, this);
         if (item == null) return;
-        if (p.hasPotionEffect(PotionEffectType.HEALTH_BOOST) && p.getPotionEffect(PotionEffectType.HEALTH_BOOST).getDuration() < 160) {
-            double oldHealth = p.getHealth();
-            p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 300, (item.getEnchantmentLevel(this)-1), true, false));
-            p.setHealth(oldHealth);
-        } else if (!p.hasPotionEffect(PotionEffectType.HEALTH_BOOST)) {
-            p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 300, (item.getEnchantmentLevel(this)-1), true, false));
+        if (p.getLocation().getBlock().getRelative(BlockFace.DOWN).getType() != Material.SAND) return;
+        if (p.hasPotionEffect(PotionEffectType.SPEED) && p.getPotionEffect(PotionEffectType.SPEED).getDuration() <= 20) {
+            p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, (item.getEnchantmentLevel(this)-1), true, true));
+        } else if (!p.hasPotionEffect(PotionEffectType.SPEED)) {
+            p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, (item.getEnchantmentLevel(this)-1), true, true));
         }
     }
 }

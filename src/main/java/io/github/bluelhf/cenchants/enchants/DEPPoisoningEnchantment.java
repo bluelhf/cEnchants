@@ -1,5 +1,6 @@
 package io.github.bluelhf.cenchants.enchants;
 
+import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.Player;
@@ -62,6 +63,11 @@ public class DEPPoisoningEnchantment extends CEnchantment {
     @Override
     public boolean canEnchantItem(@NotNull ItemStack item) {
         return super.canEnchantItem(item);
+    }
+
+    @Override
+    public BaseComponent[] getDescription() {
+        return new BaseComponent[0];
     }
 
     @Override

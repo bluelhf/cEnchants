@@ -2,10 +2,13 @@ package io.github.bluelhf.cenchants.enchants;
 
 import io.github.bluelhf.cenchants.cEnchants;
 import io.github.bluelhf.cenchants.utilities.EnchantUtil;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -50,6 +53,14 @@ public class FrostTouchEnchantment extends CEnchantment implements Listener {
             livingVictim.getWorld().spawnParticle(Particle.ITEM_CRACK, livingVictim.getLocation(), (int) (Math.random()*7+5), w, h, w, 0, new ItemStack(Material.ICE));
         }}.runTaskTimer(cEnchants.get(), 0, 4);
 
+    }
+
+    @Override
+    public BaseComponent[] getDescription() {
+        return new ComponentBuilder()
+            .append("Frost Touch ").bold(true)
+            .append("freezes everything you hit!").reset()
+            .create();
     }
 
     public FrostTouchEnchantment(String key) {
@@ -99,5 +110,10 @@ public class FrostTouchEnchantment extends CEnchantment implements Listener {
     @Override
     public Rarity getRarity() {
         return Rarity.UNCOMMON;
+    }
+
+    @Override
+    public boolean conflictsWith(@NotNull Enchantment other) {
+        return super.conflictsWith(other) || other instanceof FlamingAuraEnchantment || other == Enchantment.FIRE_ASPECT;
     }
 }

@@ -2,6 +2,8 @@ package io.github.bluelhf.cenchants.enchants;
 
 import io.github.bluelhf.cenchants.cEnchants;
 import io.github.bluelhf.cenchants.utilities.EnchantUtil;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.enchantments.EnchantmentTarget;
@@ -34,6 +36,11 @@ public class BaneOfTheSeaEnchantment extends CEnchantment implements Listener {
         int level = i.getEnchantmentLevel(this);
         ev.getEntity().getWorld().playSound(ev.getEntity().getLocation(), Sound.BLOCK_CONDUIT_ATTACK_TARGET, 1, 1.3F);
         ev.setDamage(ev.getDamage() + (ev.getDamage() * (0.25 * level)));
+    }
+
+    @Override
+    public BaseComponent[] getDescription() {
+        return new ComponentBuilder().append("Deals more damage to sea creatures").create();
     }
 
     public BaneOfTheSeaEnchantment(String key) {

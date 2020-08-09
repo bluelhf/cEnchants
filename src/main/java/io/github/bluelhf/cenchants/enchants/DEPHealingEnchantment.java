@@ -1,5 +1,6 @@
 package io.github.bluelhf.cenchants.enchants;
 
+import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
@@ -69,6 +70,11 @@ public class DEPHealingEnchantment extends CEnchantment {
     public boolean canEnchantItem(@NotNull ItemStack item) {
         if (item.getType() == Material.AIR) return false;
         return true;
+    }
+
+    @Override
+    public BaseComponent[] getDescription() {
+        return new BaseComponent[0];
     }
 
     @Override
