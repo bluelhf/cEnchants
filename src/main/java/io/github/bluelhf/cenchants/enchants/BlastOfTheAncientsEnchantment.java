@@ -31,7 +31,7 @@ public class BlastOfTheAncientsEnchantment extends CEnchantment implements Liste
     public void onDamage(EntityDamageByEntityEvent ev) {
         if (!(ev.getEntity() instanceof Player)) return;
         Player pl = (Player) ev.getEntity();
-        if (!(pl.getEquipment().getItemInMainHand().getType() == Material.SHIELD) && !(pl.getEquipment().getItemInOffHand().getType() == Material.SHIELD));
+        if (!(pl.getEquipment().getItemInMainHand().getType() == Material.SHIELD) && !(pl.getEquipment().getItemInOffHand().getType() == Material.SHIELD)) return;
 
         ItemStack hand = null;
         if (pl.getEquipment().getItemInMainHand().containsEnchantment(this)) hand = pl.getEquipment().getItemInMainHand();
@@ -142,7 +142,7 @@ public class BlastOfTheAncientsEnchantment extends CEnchantment implements Liste
         HandlerList.unregisterAll(this);
     }
 
-    public BlastOfTheAncientsEnchantment(String key) {
+    public BlastOfTheAncientsEnchantment(NamespacedKey key) {
         super(key);
     }
 
@@ -190,13 +190,13 @@ public class BlastOfTheAncientsEnchantment extends CEnchantment implements Liste
     }
 
     public static class StoredParticle {
-        Particle particle;
-        Location location;
-        int count;
-        double xOff;
-        double yOff;
-        double zOff;
-        double extra;
+        final Particle particle;
+        final Location location;
+        final int count;
+        final double xOff;
+        final double yOff;
+        final double zOff;
+        final double extra;
         public StoredParticle(Particle particle, Location location, int count, double xOff, double yOff, double zOff, double extra) {
             this.particle = particle;
             this.location = location;

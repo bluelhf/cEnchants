@@ -1,6 +1,7 @@
 package io.github.bluelhf.cenchants.enchants;
 
 import net.md_5.bungee.api.chat.BaseComponent;
+import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.Player;
@@ -15,7 +16,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class DEPPoisoningEnchantment extends CEnchantment {
-    public DEPPoisoningEnchantment(String key) {
+    public DEPPoisoningEnchantment(NamespacedKey key) {
         super(key);
     }
 

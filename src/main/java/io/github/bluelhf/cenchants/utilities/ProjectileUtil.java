@@ -32,12 +32,10 @@ public class ProjectileUtil {
             copyArrow.setPierceLevel(oldArrow.getPierceLevel());
             copyArrow.setDamage(oldArrow.getDamage());
             copyArrow.setShotFromCrossbow(oldArrow.isShotFromCrossbow());
-            if (cEnchants.getMetadata(oldArrow, "storm_arrow").isPresent()) {
-                copyArrow.setMetadata("storm_arrow", cEnchants.getMetaValue(true));
-            }
+            cEnchants.getMetadata(oldArrow, "storm_arrow").ifPresent(val -> copyArrow.setMetadata("storm_arrow", val));
+            cEnchants.getMetadata(oldArrow, "explode").ifPresent(val -> copyArrow.setMetadata("explode", val));
             if (cEnchants.getMetadata(oldArrow, "homing").isPresent()) {
                 HomingEnchantment.HomingData homingData = (HomingEnchantment.HomingData) cEnchants.getMetadata(oldArrow, "homing").get().value();
-
                 ((HomingEnchantment)CEnchantment.findByKey(new NamespacedKey(cEnchants.get(), "homing"))).home(homingData.player, copyArrow, homingData.level);
             }
         } else if (old instanceof Firework && copy instanceof Firework) {

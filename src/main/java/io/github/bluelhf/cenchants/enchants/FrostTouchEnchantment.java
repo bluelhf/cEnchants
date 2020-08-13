@@ -4,10 +4,7 @@ import io.github.bluelhf.cenchants.cEnchants;
 import io.github.bluelhf.cenchants.utilities.EnchantUtil;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.Particle;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.LivingEntity;
@@ -17,7 +14,6 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -63,7 +59,7 @@ public class FrostTouchEnchantment extends CEnchantment implements Listener {
             .create();
     }
 
-    public FrostTouchEnchantment(String key) {
+    public FrostTouchEnchantment(NamespacedKey key) {
         super(key);
     }
 

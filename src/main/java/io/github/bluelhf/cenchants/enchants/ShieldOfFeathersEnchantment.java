@@ -6,6 +6,7 @@ import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.Sound;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.Player;
@@ -64,7 +65,7 @@ public class ShieldOfFeathersEnchantment extends CEnchantment implements Listene
         HandlerList.unregisterAll(this);
     }
 
-    public ShieldOfFeathersEnchantment(String key) {
+    public ShieldOfFeathersEnchantment(NamespacedKey key) {
         super(key);
     }
 

@@ -4,10 +4,7 @@ import io.github.bluelhf.cenchants.cEnchants;
 import io.github.bluelhf.cenchants.utilities.EnchantUtil;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Particle;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -25,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class FlamingAuraEnchantment extends CEnchantment implements Listener {
 
-    public FlamingAuraEnchantment(String key) {
+    public FlamingAuraEnchantment(NamespacedKey key) {
         super(key);
     }
 

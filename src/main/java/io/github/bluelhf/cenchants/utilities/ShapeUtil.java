@@ -5,11 +5,10 @@ import org.bukkit.World;
 import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ShapeUtil {
-    public static double GOLDEN_RATIO = 1.618033988749894848;
+    public static final double GOLDEN_RATIO = 1.618033988749894848;
 
     public static List<Location> wireframe(Location corner1, Location corner2, double sparsity) {
         World w = corner1.getWorld();

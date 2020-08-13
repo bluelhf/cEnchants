@@ -3,10 +3,7 @@ package io.github.bluelhf.cenchants.enchants;
 import io.github.bluelhf.cenchants.cEnchants;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Particle;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.LivingEntity;
@@ -74,7 +71,7 @@ public class LifeStealEnchantment extends CEnchantment implements Listener {
         HandlerList.unregisterAll(this);
     }
 
-    public LifeStealEnchantment(String key) {
+    public LifeStealEnchantment(NamespacedKey key) {
         super(key);
     }
 

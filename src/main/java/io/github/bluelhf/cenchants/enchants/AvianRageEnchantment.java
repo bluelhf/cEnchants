@@ -5,6 +5,7 @@ import io.github.bluelhf.cenchants.utilities.EnchantUtil;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -54,7 +55,7 @@ public class AvianRageEnchantment extends CEnchantment implements Listener {
         HandlerList.unregisterAll(this);
     }
 
-    public AvianRageEnchantment(String key) {
+    public AvianRageEnchantment(NamespacedKey key) {
         super(key);
     }
 

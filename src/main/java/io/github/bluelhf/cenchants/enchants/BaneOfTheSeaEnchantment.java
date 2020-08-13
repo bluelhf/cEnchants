@@ -5,12 +5,14 @@ import io.github.bluelhf.cenchants.utilities.EnchantUtil;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
 import org.bukkit.Sound;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
+import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
@@ -43,7 +45,7 @@ public class BaneOfTheSeaEnchantment extends CEnchantment implements Listener {
         return new ComponentBuilder().append("Deals more damage to sea creatures").create();
     }
 
-    public BaneOfTheSeaEnchantment(String key) {
+    public BaneOfTheSeaEnchantment(NamespacedKey key) {
         super(key);
     }
 
@@ -54,7 +56,7 @@ public class BaneOfTheSeaEnchantment extends CEnchantment implements Listener {
 
     @Override
     public void onUnregister() {
-        super.onUnregister();
+        HandlerList.unregisterAll(this);
     }
 
     @Override

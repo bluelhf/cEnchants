@@ -2,6 +2,7 @@ package io.github.bluelhf.cenchants.enchants;
 
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.Player;
@@ -17,7 +18,7 @@ import java.util.stream.Collectors;
 
 public class DEPHealingEnchantment extends CEnchantment {
 
-    public DEPHealingEnchantment(String key) {
+    public DEPHealingEnchantment(NamespacedKey key) {
         super(key);
     }
 

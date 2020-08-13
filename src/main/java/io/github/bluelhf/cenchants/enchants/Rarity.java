@@ -9,7 +9,7 @@ public enum Rarity {
     LEGENDARY(ChatColor.GOLD),
     CURSED(ChatColor.RED);
 
-    ChatColor colour;
+    final ChatColor colour;
     Rarity(ChatColor colour) {
         this.colour = colour;
     }

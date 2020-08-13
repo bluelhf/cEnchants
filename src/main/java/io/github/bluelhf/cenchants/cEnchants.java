@@ -31,22 +31,24 @@ public class cEnchants extends BukkitPlugin {
         //EnchantmentWrapper.register(new PoisoningEnchantment("poisoning"));
         //EnchantmentWrapper.register(new FlingEnchantment("fling"));
 
-        CEnchantment.register(new FlamingAuraEnchantment        ("flaming_aura"          ));
-        CEnchantment.register(new LifeStealEnchantment          ("life_steal"            ));
-        CEnchantment.register(new HomingEnchantment             ("homing"                ));
-        CEnchantment.register(new MultiquiverEnchantment        ("multiquiver"           ));
-        CEnchantment.register(new FrostTouchEnchantment         ("frost_touch"           ));
-        CEnchantment.register(new StormArrowEnchantment         ("storm_arrow"           ));
-        CEnchantment.register(new VitalityEnchantment           ("vitality"              ));
-        CEnchantment.register(new AvianRageEnchantment          ("avian_rage"            ));
-        CEnchantment.register(new BaneOfTheSeaEnchantment       ("bane_of_the_sea"       ));
-        CEnchantment.register(new BaneOfTheIllagersEnchantment  ("bane_of_the_illagers"  ));
-        CEnchantment.register(new RecurseEnchantment            ("recursion"             ));
-        CEnchantment.register(new SandstormShieldEnchantment    ("sandstorm_shield"      ));
-        CEnchantment.register(new BlastOfTheAncientsEnchantment ("blast_of_the_ancients" ));
-        CEnchantment.register(new BlessingOfTheDesertEnchantment("blessing_of_the_desert"));
-        CEnchantment.register(new ArrowMaelstromEnchantment     ("arrow_maelstrom"       ));
-        CEnchantment.register(new ShieldOfFeathersEnchantment   ("shield_of_feathers"    ));
+        CEnchantment.register(new FlamingAuraEnchantment        (getNamespacedKey("flaming_aura"          )));
+        CEnchantment.register(new LifeStealEnchantment          (getNamespacedKey("life_steal"            )));
+        CEnchantment.register(new HomingEnchantment             (getNamespacedKey("homing"                )));
+        CEnchantment.register(new MultiquiverEnchantment        (getNamespacedKey("multiquiver"           )));
+        CEnchantment.register(new FrostTouchEnchantment         (getNamespacedKey("frost_touch"           )));
+        CEnchantment.register(new StormArrowEnchantment         (getNamespacedKey("storm_arrow"           )));
+        CEnchantment.register(new VitalityEnchantment           (getNamespacedKey("vitality"              )));
+        CEnchantment.register(new AvianRageEnchantment          (getNamespacedKey("avian_rage"            )));
+        CEnchantment.register(new BaneOfTheSeaEnchantment       (getNamespacedKey("bane_of_the_sea"       )));
+        CEnchantment.register(new BaneOfTheIllagersEnchantment  (getNamespacedKey("bane_of_the_illagers"  )));
+        CEnchantment.register(new RecurseEnchantment            (getNamespacedKey("recursion"             )));
+        CEnchantment.register(new SandstormShieldEnchantment    (getNamespacedKey("sandstorm_shield"      )));
+        CEnchantment.register(new BlastOfTheAncientsEnchantment (getNamespacedKey("blast_of_the_ancients" )));
+        CEnchantment.register(new BlessingOfTheDesertEnchantment(getNamespacedKey("blessing_of_the_desert")));
+        CEnchantment.register(new ArrowMaelstromEnchantment     (getNamespacedKey("arrow_maelstrom"       )));
+        CEnchantment.register(new ShieldOfFeathersEnchantment   (getNamespacedKey("shield_of_feathers"    )));
+        CEnchantment.register(new ExplodingArrowsEnchantment    (getNamespacedKey("exploding_arrows"      )));
+        CEnchantment.register(new RicochetEnchantment           (getNamespacedKey("ricochet"              )));
 
         // Start ticker task
         getLogger().info("Starting ticking task");

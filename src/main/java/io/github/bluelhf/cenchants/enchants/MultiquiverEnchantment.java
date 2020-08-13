@@ -9,7 +9,6 @@ import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.AbstractArrow;
-import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
@@ -24,7 +23,7 @@ import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
 public class MultiquiverEnchantment extends CEnchantment implements Listener {
-    public MultiquiverEnchantment(String key) {
+    public MultiquiverEnchantment(NamespacedKey key) {
         super(key);
     }
 

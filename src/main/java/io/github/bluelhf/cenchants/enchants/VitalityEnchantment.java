@@ -3,6 +3,7 @@ package io.github.bluelhf.cenchants.enchants;
 import io.github.bluelhf.cenchants.utilities.EnchantUtil;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
+import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -11,7 +12,7 @@ import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 
 public class VitalityEnchantment extends CEnchantment {
-    public VitalityEnchantment(String key) {
+    public VitalityEnchantment(NamespacedKey key) {
         super(key);
     }
 

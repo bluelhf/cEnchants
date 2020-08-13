@@ -7,6 +7,7 @@ import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
 import org.bukkit.Sound;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.enchantments.EnchantmentTarget;
@@ -82,7 +83,7 @@ public class ArrowMaelstromEnchantment extends CEnchantment implements Listener 
         }
     }
 
-    public ArrowMaelstromEnchantment(String key) {
+    public ArrowMaelstromEnchantment(NamespacedKey key) {
         super(key);
     }
 

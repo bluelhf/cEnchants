@@ -3,14 +3,10 @@ package io.github.bluelhf.cenchants.enchants;
 import io.github.bluelhf.cenchants.cEnchants;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Particle;
+import org.bukkit.*;
 import org.bukkit.block.BlockFace;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.HandlerList;
@@ -66,7 +62,7 @@ public class SandstormShieldEnchantment extends CEnchantment implements Listener
 
 
 
-    public SandstormShieldEnchantment(String key) {
+    public SandstormShieldEnchantment(NamespacedKey key) {
         super(key);
     }
 

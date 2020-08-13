@@ -5,6 +5,7 @@ import io.github.bluelhf.cenchants.utilities.ProjectileUtil;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
@@ -58,7 +59,7 @@ public class RecurseEnchantment extends CEnchantment implements Listener {
             .create();
     }
 
-    public RecurseEnchantment(String key) {
+    public RecurseEnchantment(NamespacedKey key) {
         super(key);
     }
 
@@ -107,8 +108,8 @@ public class RecurseEnchantment extends CEnchantment implements Listener {
         return false;
     }
 
-    class RecursionData implements Cloneable {
-        Player shooter;
+    static class RecursionData implements Cloneable {
+        final Player shooter;
         int level = 1;
         int depth = 0;
 
@@ -119,6 +120,7 @@ public class RecurseEnchantment extends CEnchantment implements Listener {
         public RecursionData(RecursionData data) {
             this.shooter = data.shooter;
             this.depth = data.depth;
+            this.level = data.level;
         }
 
         public int getLevel() {

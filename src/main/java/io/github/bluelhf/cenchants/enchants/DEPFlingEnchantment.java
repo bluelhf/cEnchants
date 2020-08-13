@@ -3,6 +3,7 @@ package io.github.bluelhf.cenchants.enchants;
 import io.github.bluelhf.cenchants.cEnchants;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.LivingEntity;
@@ -28,7 +29,7 @@ public class DEPFlingEnchantment extends CEnchantment implements Listener {
         }}.runTaskLater(cEnchants.get(), 1);
     }
 
-    public DEPFlingEnchantment(String key) {
+    public DEPFlingEnchantment(NamespacedKey key) {
         super(key);
     }
 

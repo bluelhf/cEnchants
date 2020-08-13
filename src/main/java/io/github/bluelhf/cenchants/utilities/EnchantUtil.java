@@ -1,13 +1,10 @@
 package io.github.bluelhf.cenchants.utilities;
 
-import io.github.bluelhf.cenchants.cEnchants;
 import org.bukkit.ChatColor;
 import org.bukkit.enchantments.Enchantment;
 import io.github.bluelhf.cenchants.enchants.CEnchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;

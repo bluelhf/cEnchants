@@ -24,7 +24,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class HomingEnchantment extends CEnchantment implements Listener {
-    public HomingEnchantment(String key) {
+    public HomingEnchantment(NamespacedKey key) {
         super(key);
     }
 
@@ -65,7 +65,6 @@ public class HomingEnchantment extends CEnchantment implements Listener {
                             .filter(e -> e instanceof LivingEntity)
                             .map(e -> (LivingEntity) e)
                             .filter(e -> e != player)
-                            .filter(e -> e != p)
                             .min((a, b) -> (int) (a.getLocation().distanceSquared(p.getLocation()) - b.getLocation().distanceSquared(p.getLocation())))
                             .orElse(null);
                     if (potentialTarget != null && potentialTarget.isValid()) {
@@ -92,7 +91,6 @@ public class HomingEnchantment extends CEnchantment implements Listener {
                     if (p.getLocation().distance(targetLocation) < 0.5 || !p.isValid()) {
                         player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new ComponentBuilder("Hit!").color(ChatColor.GREEN).bold(true).create());
                         this.cancel();
-                        return;
                     }
                 }
 
@@ -158,10 +156,10 @@ public class HomingEnchantment extends CEnchantment implements Listener {
         return Rarity.LEGENDARY;
     }
 
-    public class HomingData {
-        public Player player;
-        public int level;
-        public Projectile projectile;
+    public static class HomingData {
+        public final Player player;
+        public final int level;
+        public final Projectile projectile;
         public HomingData(Player player, int level, Projectile projectile) {
             this.player = player;
             this.level = level;
