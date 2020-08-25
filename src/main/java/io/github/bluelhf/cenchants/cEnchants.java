@@ -49,6 +49,7 @@ public class cEnchants extends BukkitPlugin {
         CEnchantment.register(new ShieldOfFeathersEnchantment   (getNamespacedKey("shield_of_feathers"    )));
         CEnchantment.register(new ExplodingArrowsEnchantment    (getNamespacedKey("exploding_arrows"      )));
         CEnchantment.register(new RicochetEnchantment           (getNamespacedKey("ricochet"              )));
+        CEnchantment.register(new GreenFingerEnchantment        (getNamespacedKey("green_finger"          )));
 
         // Start ticker task
         getLogger().info("Starting ticking task");
