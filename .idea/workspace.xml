@@ -1,29 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81d02287-79e7-4d6e-b593-3f289a10e1e2" name="Default Changelist" comment="updates???">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/cenchants/enchants/GreenFingerEnchantment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/cenchants/cEnchants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/cenchants/cEnchants.java" afterDir="false" />
-    </list>
+    <list default="true" id="81d02287-79e7-4d6e-b593-3f289a10e1e2" name="Default Changelist" comment="sync to github" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,14 +50,42 @@
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/GitHub/cEnchants" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bluelhf\GitHub\" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -92,34 +105,35 @@
       <workItem from="1596830501217" duration="7120000" />
       <workItem from="1596867938794" duration="10522000" />
       <workItem from="1596914326335" duration="2302000" />
-      <workItem from="1596980297409" duration="670000" />
-      <workItem from="1597130743953" duration="50000" />
-      <workItem from="1597165526111" duration="3106000" />
-      <workItem from="1597321983670" duration="38000" />
-      <workItem from="1597417299551" duration="2456000" />
-      <workItem from="1597860763984" duration="143000" />
-      <workItem from="1597931418219" duration="2544000" />
-      <workItem from="1597935693342" duration="1243000" />
+      <workItem from="1596980297409" duration="1317000" />
+      <workItem from="1597325047934" duration="96000" />
+      <workItem from="1599384558675" duration="535000" />
     </task>
-    <task id="LOCAL-00001" summary="updates???">
-      <created>1597322013229</created>
+    <task id="LOCAL-00001" summary="sync to github">
+      <created>1596983749603</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1597322013229</updated>
+      <updated>1596983749604</updated>
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -127,8 +141,8 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updates???" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates???" />
+    <MESSAGE value="sync to github" />
+    <option name="LAST_COMMIT_MESSAGE" value="sync to github" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="73" key="#Project_Structure" timestamp="1596705388186">
@@ -139,15 +153,11 @@
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="686" y="301" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.999@0.0.1920.999" timestamp="1596820507730" />
-    <state x="574" y="120" key="#com.intellij.ide.util.MemberChooser" timestamp="1597932319878">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="718" y="145" key="#com.intellij.ide.util.MemberChooser" timestamp="1596880629208">
+      <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="574" y="120" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1597932319878" />
+    <state x="574" y="120" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1596664760895" />
     <state x="718" y="145" key="#com.intellij.ide.util.MemberChooser/0.0.1920.999@0.0.1920.999" timestamp="1596880629208" />
-    <state x="393" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1597931685435">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="393" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1597931685435" />
     <state x="683" y="343" width="443" height="263" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1596718111991">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
@@ -157,55 +167,63 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="150" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1596646875808" />
-    <state x="499" y="160" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1597002755946">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="803" y="254" key="FileChooserDialogImpl" timestamp="1599385060756">
+      <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="499" y="160" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1597002755946" />
-    <state x="516" y="259" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1597002878929">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="803" y="254" key="FileChooserDialogImpl/0.0.1920.999@0.0.1920.999" timestamp="1599385060756" />
+    <state width="1877" height="268" key="GridCell.Tab.0.bottom" timestamp="1596919449563">
+      <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="516" y="259" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1597002878929" />
-    <state width="1495" height="211" key="GridCell.Tab.0.bottom" timestamp="1597008460882">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1495" height="211" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1597008460882" />
+    <state width="747" height="211" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596573798503" />
     <state width="1877" height="268" key="GridCell.Tab.0.bottom/0.0.1920.999@0.0.1920.999" timestamp="1596919449563" />
-    <state width="1495" height="211" key="GridCell.Tab.0.center" timestamp="1597008460882">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="268" key="GridCell.Tab.0.center" timestamp="1596919449563">
+      <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1495" height="211" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1597008460882" />
+    <state width="747" height="211" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596573798502" />
     <state width="1877" height="268" key="GridCell.Tab.0.center/0.0.1920.999@0.0.1920.999" timestamp="1596919449563" />
-    <state width="1495" height="211" key="GridCell.Tab.0.left" timestamp="1597008460882">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="268" key="GridCell.Tab.0.left" timestamp="1596919449563">
+      <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1495" height="211" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1597008460882" />
+    <state width="747" height="211" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596573798501" />
     <state width="1877" height="268" key="GridCell.Tab.0.left/0.0.1920.999@0.0.1920.999" timestamp="1596919449563" />
-    <state width="1495" height="211" key="GridCell.Tab.0.right" timestamp="1597008460882">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="268" key="GridCell.Tab.0.right" timestamp="1596919449563">
+      <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1495" height="211" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1597008460882" />
+    <state width="747" height="211" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596573798502" />
     <state width="1877" height="268" key="GridCell.Tab.0.right/0.0.1920.999@0.0.1920.999" timestamp="1596919449563" />
     <state x="461" y="144" width="1264" height="711" key="SettingsEditor" timestamp="1596881195027">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="461" y="144" width="1264" height="711" key="SettingsEditor/0.0.1920.999@0.0.1920.999" timestamp="1596881195027" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1597417669687">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="846" y="413" key="VCS.EditChangelistDialog" timestamp="1599384808590">
+      <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1597417669687" />
+    <state x="846" y="413" key="VCS.EditChangelistDialog/0.0.1920.999@0.0.1920.999" timestamp="1599384808590" />
+    <state x="552" y="232" key="Vcs.Push.Dialog.v2" timestamp="1596983752303">
+      <screen x="0" y="0" width="1920" height="999" />
+    </state>
+    <state x="552" y="232" key="Vcs.Push.Dialog.v2/0.0.1920.999@0.0.1920.999" timestamp="1596983752303" />
+    <state x="777" y="413" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597325058202">
+      <screen x="0" y="0" width="1920" height="999" />
+    </state>
+    <state x="777" y="413" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.999@0.0.1920.999" timestamp="1597325058202" />
     <state x="499" y="169" key="extract.method.dialog" timestamp="1596641547378">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="169" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1596641547378" />
+    <state x="667" y="99" width="712" height="801" key="find.popup" timestamp="1599385077116">
+      <screen x="0" y="0" width="1920" height="999" />
+    </state>
+    <state x="667" y="99" width="712" height="801" key="find.popup/0.0.1920.999@0.0.1920.999" timestamp="1599385077116" />
     <state x="531" y="227" key="run.anything.popup" timestamp="1596877651140">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1596656435922" />
     <state x="531" y="227" key="run.anything.popup/0.0.1920.999@0.0.1920.999" timestamp="1596877651140" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1597932316158">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="539" y="176" width="840" height="822" key="search.everywhere.popup" timestamp="1596868639367">
+      <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1597932316158" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1596640173152" />
     <state x="539" y="176" width="840" height="822" key="search.everywhere.popup/0.0.1920.999@0.0.1920.999" timestamp="1596868639367" />
   </component>
 </project>

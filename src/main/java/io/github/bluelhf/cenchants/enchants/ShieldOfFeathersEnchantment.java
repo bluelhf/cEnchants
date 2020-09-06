@@ -18,6 +18,8 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
@@ -36,13 +38,12 @@ public class ShieldOfFeathersEnchantment extends CEnchantment implements Listene
         ev.setDamage(ev.getDamage() / (level+1));
         pl.getWorld().playSound(pl.getLocation(), Sound.ITEM_SHIELD_BLOCK, 1, 0.8F);
         pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ENDER_DRAGON_FLAP, 1, 1.5F);
+        pl.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, (int) (Math.random()*30+30), 3));
         ItemStack item = EnchantUtil.getEnchantment(pl, this);
         ItemMeta meta = item.getItemMeta();
         if (meta instanceof Damageable) {
             Damageable damageable = (Damageable)meta;
-            cEnchants.get().getLogger().info("Past dmg is " + damageable.getDamage());
             damageable.setDamage(damageable.getDamage() + 1 + getMaxLevel()/level);
-            cEnchants.get().getLogger().info("Future dmg is " + damageable.getDamage());
         }
         item.setItemMeta(meta);
     }

@@ -129,7 +129,6 @@ public class CEnchantCommand extends Commander<CommandSender> implements Wrapped
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
-        cEnchants.get().getLogger().info(args.length + " " + Arrays.toString(args));
         if (args.length == 1) {
             ArrayList<String> list = new ArrayList<>(Arrays.asList("@a", "@s", "@r", "@p"));
             list.addAll(Bukkit.getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList()));
