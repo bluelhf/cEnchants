@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,10 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81d02287-79e7-4d6e-b593-3f289a10e1e2" name="Default Changelist" comment="updates???">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/cenchants/enchants/GreenFingerEnchantment.java" afterDir="false" />
+    <list default="true" id="81d02287-79e7-4d6e-b593-3f289a10e1e2" name="Default Changelist" comment="Add GreenFinger enchantment">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cEnchants.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cEnchants.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/cenchants/cEnchants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/bluelhf/cenchants/cEnchants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +40,17 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2\plugins\maven\lib\maven3" />
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.1.4\plugins\maven\lib\maven3" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -72,7 +80,7 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -100,6 +108,11 @@
       <workItem from="1597860763984" duration="143000" />
       <workItem from="1597931418219" duration="2544000" />
       <workItem from="1597935693342" duration="1243000" />
+      <workItem from="1598377108489" duration="143000" />
+      <workItem from="1598381023532" duration="84000" />
+      <workItem from="1598806634630" duration="106000" />
+      <workItem from="1599468197006" duration="900000" />
+      <workItem from="1599859955491" duration="105000" />
     </task>
     <task id="LOCAL-00001" summary="updates???">
       <created>1597322013229</created>
@@ -108,11 +121,18 @@
       <option name="project" value="LOCAL" />
       <updated>1597322013229</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add GreenFinger enchantment">
+      <created>1598377217381</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598377217381</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -128,7 +148,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updates???" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates???" />
+    <MESSAGE value="Add GreenFinger enchantment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add GreenFinger enchantment" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="73" key="#Project_Structure" timestamp="1596705388186">
@@ -189,14 +210,22 @@
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="461" y="144" width="1264" height="711" key="SettingsEditor/0.0.1920.999@0.0.1920.999" timestamp="1596881195027" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1597417669687">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1598377220909">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1597417669687" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1598377220909" />
+    <state x="578" y="327" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598806663588">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="578" y="327" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1598806663588" />
     <state x="499" y="169" key="extract.method.dialog" timestamp="1596641547378">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="169" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1596641547378" />
+    <state x="158" y="74" key="new project wizard" timestamp="1598381109289">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="158" y="74" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1598381109289" />
     <state x="531" y="227" key="run.anything.popup" timestamp="1596877651140">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
