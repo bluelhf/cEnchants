@@ -52,15 +52,16 @@ public class StompingEnchantment extends CEnchantment implements Listener {
         
         for(int i = 0; i < victims.length; i ++) {
         	Entity target = victims[i];
+        	double distance = target.getLocation().distance(pl.getLocation());
         	if (target.equals(pl)) continue;
-        	if (target.getLocation().distance(pl.getLocation()) <= power) continue;
+        	if (distance <= power) continue;
             org.bukkit.entity.Damageable d = (org.bukkit.entity.Damageable) target;
             d.damage(power/2);
         	
         	target.setVelocity(target.getVelocity().add(new Vector(
         			power*(target.getLocation().getX() - pl.getLocation().getX()),
         			power*(target.getLocation().getY() - pl.getLocation().getY()),
-        			power*(target.getLocation().getZ() - pl.getLocation().getZ())).multiply(dmg)));
+        			power*(target.getLocation().getZ() - pl.getLocation().getZ())).multiply(1/distance)));
         }
         
     }
