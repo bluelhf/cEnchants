@@ -43,15 +43,19 @@ public class SmeltingTouchEnchantment extends CEnchantment implements Listener {
             fortuneLevel = ev.getPlayer().getEquipment().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS);
 
         for (int i = 0; i < ev.getItems().size(); i++) {
-            int add = 0;
-            if (random.nextInt(101) >= (2 / (fortuneLevel + 2) * 100)) {
-                add = random.nextInt(fortuneLevel - 1) + 2;
-            }
+
             Item drop = ev.getItems().get(i);
             ItemStack stack = drop.getItemStack();
-            stack.setAmount(stack.getAmount() + add);
-            if (smeltMap.containsKey(stack.getType())) stack.setType(smeltMap.get(stack.getType()));
-            drop.setItemStack(stack);
+
+            if (smeltMap.containsKey(stack.getType())) {
+                int add = 0;
+                if (random.nextInt(101) >= (2 / (fortuneLevel + 2) * 100)) {
+                    add = random.nextInt(fortuneLevel - 1) + 2;
+                }
+                stack.setAmount(stack.getAmount() + add);
+                stack.setType(smeltMap.get(stack.getType()));
+                drop.setItemStack(stack);
+            }
         }
     }
 
