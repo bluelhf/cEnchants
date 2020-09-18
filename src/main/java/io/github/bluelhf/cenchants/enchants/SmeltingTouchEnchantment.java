@@ -7,9 +7,9 @@ import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.Item;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.HandlerList;
@@ -22,10 +22,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Random;
 
 public class SmeltingTouchEnchantment extends CEnchantment implements Listener {
 
     private HashMap<Material, Material> smeltMap = new HashMap<>();
+    private Random random = new Random();
 
     public SmeltingTouchEnchantment(NamespacedKey key) {
         super(key);
@@ -36,9 +38,18 @@ public class SmeltingTouchEnchantment extends CEnchantment implements Listener {
         if (ev.isCancelled()) return;
         if (EnchantUtil.getEnchantment(ev.getPlayer(), this) == null) return;
 
+        int fortuneLevel = 0;
+        if (ev.getPlayer().getEquipment() != null)
+            fortuneLevel = ev.getPlayer().getEquipment().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS);
+
         for (int i = 0; i < ev.getItems().size(); i++) {
+            int add = 0;
+            if (random.nextInt(101) >= (2 / (fortuneLevel + 2) * 100)) {
+                add = random.nextInt(fortuneLevel - 1) + 2;
+            }
             Item drop = ev.getItems().get(i);
             ItemStack stack = drop.getItemStack();
+            stack.setAmount(stack.getAmount() + add);
             if (smeltMap.containsKey(stack.getType())) stack.setType(smeltMap.get(stack.getType()));
             drop.setItemStack(stack);
         }
