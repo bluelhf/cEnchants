@@ -120,6 +120,6 @@ public class StompingEnchantment extends CEnchantment implements Listener {
 
     @Override
     public Rarity getRarity() {
-        return Rarity.EPIC;
+        return Rarity.UNCOMMON;
     }
 }
