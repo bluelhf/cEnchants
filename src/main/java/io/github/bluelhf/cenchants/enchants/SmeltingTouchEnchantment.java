@@ -50,7 +50,7 @@ public class SmeltingTouchEnchantment extends CEnchantment implements Listener {
             if (smeltMap.containsKey(stack.getType())) {
                 int add = 0;
                 if (random.nextInt(101) >= (2 / (fortuneLevel + 2) * 100)) {
-                    add = random.nextInt(fortuneLevel - 1) + 2;
+                    add = random.nextInt(fortuneLevel - 1) + 1;
                 }
                 stack.setAmount(stack.getAmount() + add);
                 stack.setType(smeltMap.get(stack.getType()));
