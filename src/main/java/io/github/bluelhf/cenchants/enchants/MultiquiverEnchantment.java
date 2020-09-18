@@ -29,6 +29,7 @@ public class MultiquiverEnchantment extends CEnchantment implements Listener {
 
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void onShoot(EntityShootBowEvent ev) {
+        if (ev.getBow() == null) return;
         if (!ev.getBow().containsEnchantment(this)) return;
         Projectile p = (Projectile) ev.getProjectile();
         if (p.hasMetadata("multishot_arrow")) return;
@@ -37,25 +38,7 @@ public class MultiquiverEnchantment extends CEnchantment implements Listener {
 
         int level = ev.getBow().getEnchantmentLevel(this);
         ev.setCancelled(true);
-        if (ev.getEntity() instanceof InventoryHolder) {
-            InventoryHolder holder = (InventoryHolder) ev.getEntity();
-            Inventory inv = holder.getInventory();
-            if (inv.getContents() != null) {
-                for (ItemStack i : holder.getInventory()) {
-                    if (i == null) continue;
-                    if (i.getType() != Material.ARROW && i.getType() != Material.TIPPED_ARROW && i.getType() != Material.SPECTRAL_ARROW)
-                        continue;
-                    if (holder instanceof Player && (
-                                ((Player) holder).getGameMode() == GameMode.CREATIVE)
-                                || ev.getBow().containsEnchantment(Enchantment.ARROW_INFINITE)
-                            ) continue;
-                    i.setAmount(i.getAmount()-1);
-                    break;
-                }
-            }
-            if (holder instanceof Player) ((Player) holder).updateInventory();
-
-        }
+        if (ev.getConsumable() != null && ev.shouldConsumeItem()) ev.getConsumable().setAmount(ev.getConsumable().getAmount()-1);
 
         double maxAngle = Math.PI / 6; // 180/6 = 30;
         double yaw = ev.getEntity().getLocation().getYaw() * Math.PI / 180;
@@ -75,12 +58,14 @@ public class MultiquiverEnchantment extends CEnchantment implements Listener {
             // Multiply by 3 because that's the speed of a full charge arrow
             AbstractArrow proj = (AbstractArrow) ProjectileUtil.shootCopy(ev, shotDirection.multiply(ev.getForce()*3));
             proj.setPickupStatus(AbstractArrow.PickupStatus.CREATIVE_ONLY);
-            if (!ev.getBow().containsEnchantment(ARROW_INFINITE) && ctr++ != -1 && ctr == random) {
+
+            // Allows a random multi-shot arrow to be picked up.
+            if (ev.shouldConsumeItem() && ctr++ != -1 && ctr == random) {
                 proj.setPickupStatus(AbstractArrow.PickupStatus.ALLOWED);
                 ctr = -1;
             }
 
-            EntityShootBowEvent event = new EntityShootBowEvent(ev.getEntity(), ev.getBow(), proj, ev.getForce());
+            EntityShootBowEvent event = new EntityShootBowEvent(ev.getEntity(), ev.getBow(), null, proj, ev.getHand(), ev.getForce(), false);
             proj.setMetadata("multishot_arrow", cEnchants.getMetaValue(true));
             Bukkit.getPluginManager().callEvent(event);
         }
