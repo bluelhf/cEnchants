@@ -18,18 +18,19 @@ import org.bukkit.event.block.BlockDropItemEvent;
 import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
+import org.bukkit.material.MaterialData;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Random;
 
-public class SmeltingTouchEnchantment extends CEnchantment implements Listener {
+public class MoltenTouchEnchantment extends CEnchantment implements Listener {
 
     private HashMap<Material, Material> smeltMap = new HashMap<>();
     private Random random = new Random();
 
-    public SmeltingTouchEnchantment(NamespacedKey key) {
+    public MoltenTouchEnchantment(NamespacedKey key) {
         super(key);
     }
 
@@ -37,6 +38,7 @@ public class SmeltingTouchEnchantment extends CEnchantment implements Listener {
     public void onBlockBreak(BlockDropItemEvent ev) {
         if (ev.isCancelled()) return;
         if (EnchantUtil.getEnchantment(ev.getPlayer(), this) == null) return;
+        int level = EnchantUtil.getEnchantment(ev.getPlayer(), this).getEnchantmentLevel(this);
 
         int fortuneLevel = 0;
         if (ev.getPlayer().getEquipment() != null)
@@ -47,7 +49,7 @@ public class SmeltingTouchEnchantment extends CEnchantment implements Listener {
             Item drop = ev.getItems().get(i);
             ItemStack stack = drop.getItemStack();
 
-            if (smeltMap.containsKey(stack.getType())) {
+            if (smeltMap.containsKey(stack.getType()) && !(level >= 2)) {
                 int add = 0;
                 if (random.nextInt(101) >= (2 / (fortuneLevel + 2) * 100)) {
                     add = random.nextInt(fortuneLevel - 1) + 1;
@@ -56,14 +58,21 @@ public class SmeltingTouchEnchantment extends CEnchantment implements Listener {
                 stack.setType(smeltMap.get(stack.getType()));
                 drop.setItemStack(stack);
             }
+            else {
+                stack.setType(Material.GUNPOWDER);
+                ItemMeta itemmeta = stack.getItemMeta();
+                itemmeta.setDisplayName("Ash");
+                item.setItemMeta(itemmeta);
+            	drop.setItemStack(stack);
+            }
         }
     }
 
     @Override
     public BaseComponent[] getDescription() {
         return new ComponentBuilder()
-            .append("Smelting Touch").bold(true)
-            .append("smelts things it touches!").reset()
+            .append("Molten Touch").bold(true)
+            .append("melts things it touches, even if it can't!").reset()
             .create();
     }
 
@@ -86,12 +95,12 @@ public class SmeltingTouchEnchantment extends CEnchantment implements Listener {
 
     @Override
     public @NotNull String getName() {
-        return "Smelting Touch";
+        return "Molten Touch";
     }
 
     @Override
     public int getMaxLevel() {
-        return 1;
+        return 2;
     }
 
     @Override
@@ -111,7 +120,7 @@ public class SmeltingTouchEnchantment extends CEnchantment implements Listener {
 
     @Override
     public boolean isCursed() {
-        return false;
+        return true;
     }
 
     @Override

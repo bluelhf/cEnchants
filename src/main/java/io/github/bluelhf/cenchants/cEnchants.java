@@ -52,6 +52,9 @@ public class cEnchants extends BukkitPlugin {
         CEnchantment.register(new GreenFingerEnchantment        (getNamespacedKey("green_finger"          )));
         CEnchantment.register(new StompingEnchantment        	(getNamespacedKey("stomping"          	  )));
         CEnchantment.register(new SmeltingTouchEnchantment    	(getNamespacedKey("smelting_touch"        )));
+        
+        //Curses
+        CEnchantment.register(new MoltenTouchEnchantment    	(getNamespacedKey("molten_touch"          )));
 
         // Start ticker task
         getLogger().info("Starting ticking task");
