@@ -18,6 +18,7 @@ import org.bukkit.event.block.BlockDropItemEvent;
 import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.material.MaterialData;
 import org.jetbrains.annotations.NotNull;
 
@@ -56,15 +57,13 @@ public class MoltenTouchEnchantment extends CEnchantment implements Listener {
                 }
                 stack.setAmount(stack.getAmount() + add);
                 stack.setType(smeltMap.get(stack.getType()));
-                drop.setItemStack(stack);
-            }
-            else {
+            } else {
                 stack.setType(Material.GUNPOWDER);
                 ItemMeta itemmeta = stack.getItemMeta();
                 itemmeta.setDisplayName("Ash");
-                item.setItemMeta(itemmeta);
-            	drop.setItemStack(stack);
+                stack.setItemMeta(itemmeta);
             }
+            drop.setItemStack(stack);
         }
     }
 
