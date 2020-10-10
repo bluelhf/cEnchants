@@ -50,8 +50,9 @@ public class cEnchants extends BukkitPlugin {
         CEnchantment.register(new ExplodingArrowsEnchantment    (getNamespacedKey("exploding_arrows"      )));
         CEnchantment.register(new RicochetEnchantment           (getNamespacedKey("ricochet"              )));
         CEnchantment.register(new GreenFingerEnchantment        (getNamespacedKey("green_finger"          )));
-        CEnchantment.register(new StompingEnchantment        	(getNamespacedKey("stomping"          	  )));
+        CEnchantment.register(new StompingEnchantment        	(getNamespacedKey("stomping"              )));
         CEnchantment.register(new SmeltingTouchEnchantment    	(getNamespacedKey("smelting_touch"        )));
+        CEnchantment.register(new NightWingsEnchantment         (getNamespacedKey("night_wings"           )));
         
         //Curses
         CEnchantment.register(new MoltenTouchEnchantment    	(getNamespacedKey("molten_touch"          )));
